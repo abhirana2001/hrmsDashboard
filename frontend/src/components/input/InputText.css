@@ -1,0 +1,24 @@
+
+
+
+
+.input__label{
+    font-size:0.875rem ;
+    font-weight: 400;
+  &::after{
+    content: "*";
+    color: red;
+  }
+}
+
+
+.input__text{
+  border: 2px solid  rgba(229, 229, 229, 1) ;
+  padding: 0.6rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size:1rem;
+  color:  rgba(164, 164, 164, 1);
+  font-weight: 400
+;
+}

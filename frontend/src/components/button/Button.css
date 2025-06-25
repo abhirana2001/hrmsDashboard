@@ -1,0 +1,13 @@
+
+:root{
+    --btn__color:rgba(77, 0, 125, 1)
+}
+.primary__btn{
+    color: rgba(255, 255, 255, 1);
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--btn__color);
+    border: none;
+    padding: 0.5rem 2.5rem;
+    border-radius: 50px;
+}

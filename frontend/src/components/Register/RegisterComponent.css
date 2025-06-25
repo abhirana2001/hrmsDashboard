@@ -1,0 +1,75 @@
+
+
+
+
+.register__form__container{
+ width: 40.3vmax;
+ height:100%;
+        border-bottom-right-radius: 20px;
+       padding: 2.4rem 7rem ;
+       background-color: rgba(255, 255, 255, 1);
+flex:1;
+
+}
+
+.register_main{
+    margin: 0.8rem 0;
+    &>div{
+        margin-top: 0.4rem;
+    }
+}
+
+
+.registercomponent__title > h2{
+font-size: 1.25rem;
+font-weight: 600;
+}
+
+.footer__register__text{
+    font-size: 0.875rem;
+    color: rgba(164, 164, 164, 1);
+    font-weight: 400;
+    margin: 0.8rem 0;
+    &>p>span{
+        color: red;
+    }
+}
+
+
+@media only screen and (max-width:992px) {
+   .logo_container{
+    
+    margin:1rem 0 0 0;
+   
+} 
+
+
+.register__form__container{
+ width: 40.3vmax;
+ height:100%;
+
+        border-bottom-right-radius: 20px;
+       padding: 3rem 5rem ;
+       background-color: rgba(255, 255, 255, 1);
+flex:1;
+
+}
+}
+
+
+
+@media only screen and (max-width:756px) {
+   
+
+.register__form__container{
+ width: 100%;
+
+ border: none;
+        border-bottom-right-radius: 20px;
+       padding: 4rem 7rem ;
+       background-color: rgba(255, 255, 255, 1);
+flex:1;
+
+}
+
+}

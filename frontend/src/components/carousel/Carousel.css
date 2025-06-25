@@ -1,0 +1,134 @@
+
+
+
+
+html,body{
+    width: 100%;
+    height: 100%;
+   
+}
+
+
+
+
+
+:root{
+    --main__color : #4D007D
+}
+
+.carousel__wrapper{
+  max-width: 40.3vmax;
+ height:100%;
+ background-color: var(--main__color);
+       padding: 4rem 5rem ;
+       
+}
+
+.carousel__container{
+ display: flex;
+
+ position: relative;;
+ max-width: 33.876vmax;
+
+}
+.carousel__box{
+ 
+    transition: all 0.5s ease;
+    
+}
+
+.carousel__img__container{
+    max-width: 33.876vmax;
+
+    height: 12.7rem;
+    overflow: hidden;
+    border-radius: 20px; 
+}
+
+.carousel__img{
+   
+    width: 100%;
+    height: 100%;
+    
+}
+
+.carousel__info{
+width: 100%;
+}
+
+.carousel__title{
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #fff;
+     text-align: center;
+}
+
+.carousel__description{
+    margin-top: 1rem;
+    font-weight: 400;
+    color: #fff;
+   font-size: 1rem;
+     text-align: center;
+}
+
+.carousel__button{
+   width: 0.5rem;
+    height: 0.5rem;
+cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #fff
+}
+
+
+.carousel__silder{
+   position: absolute;
+   bottom:-1rem;
+  gap: 0.7rem;
+  width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.carousel__button__currently{
+    background-color: #fff;
+}
+
+
+
+
+@media only screen and (max-width:756px) {
+  
+.carousel__wrapper{
+  max-width: 100vw;
+ height:100%;
+
+       padding: 2rem 3rem ;
+       
+}
+
+.carousel__container{
+ display: flex;
+
+ position: relative;;
+ max-width: 100%;
+
+}
+
+.carousel__img__container{
+     max-width: 100%;
+
+
+    height: 12.7rem;
+    overflow: hidden;
+    border-radius: 20px; 
+}
+
+.carousel__img{
+   
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+}
