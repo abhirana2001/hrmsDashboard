@@ -1,0 +1,82 @@
+
+
+.box {
+  max-width: 100%; 
+  min-height:73vh;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+.box__table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.box__table thead {
+  background-color: #4d007d;
+  color: #fff;
+   
+
+}
+
+.box__table th{
+     padding: 0.8rem 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  
+}
+
+
+.box__table td {
+  padding: 0.8rem 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 400;
+  
+}
+
+.filter__container{
+    margin: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter__Search{
+    display: flex;
+     gap:1.5rem;
+    align-items: center;
+
+}
+
+.filter_options{
+     display: flex;
+    align-items: center;
+
+     gap:1.5rem
+}
+
+
+
+.menu__btn {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .responsive-table {
+    font-size: 0.85rem;
+  }
+
+  .card {
+    padding: 0.5rem;
+  }
+}

@@ -1,0 +1,18 @@
+
+
+.dashboard__container{
+    padding: 2rem 1rem;
+    min-height: 100vh;
+   
+}
+
+.dashboard__navbar__container{
+    position: fixed;
+    left: 0;
+    top: 0;
+    
+}
+.main,.dashboard__topbar__container{
+    margin-left: 17vmax;
+    
+}

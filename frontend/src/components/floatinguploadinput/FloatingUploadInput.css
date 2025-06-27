@@ -1,0 +1,42 @@
+.floating-file-wrapper {
+    margin:1rem 0.5rem;
+
+  position: relative;
+  
+  width: 96%;
+}
+
+.floating-label {
+  position: absolute;
+  
+  top: 0.8rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: #888;
+  background: white;
+  padding: 0 0.25rem;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.floating-file-wrapper.float .floating-label {
+  top: -0.6rem;
+  left: 0.8rem;
+  font-size: 0.75rem;
+  color: #4d007d;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.fake-input {
+  border: 1px solid #4d007d;
+  padding: 1rem;
+  min-height: 3.3rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  background: white;
+}

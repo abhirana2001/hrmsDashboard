@@ -1,0 +1,29 @@
+
+
+.topbar__container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.page__title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.page__prodile__icon{
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.page__profile__icons{
+
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+  
+}
+
+.page__profile__icon__profile{
+    display: flex;
+    gap: 0.5rem;
+}
+

@@ -45,3 +45,7 @@ height: 100%;
     font-size: 11px;
   }  
 }
+
+a{
+  text-decoration: none;
+}

@@ -1,21 +1,15 @@
-import React from "react";
 import "./registerPage.css";
 import Carousel from "../../components/carousel/Carousel ";
 import RegisterComponent from "../../components/register/RegisterComponent";
+import Logo from "../../components/logo/Logo";
 
 function RegisterPage() {
   return (
     <div className="register__body">
       <div className="register__container">
-        <div className="logo_container">
+        <div className="logo_box">
           {" "}
-          <img
-            src="/icons/Property 1=Checkbox inactive.png"
-            height={"44px"}
-            width={"44px"}
-            alt=""
-          />{" "}
-          <h1>LOGO</h1>
+          <Logo />
         </div>
 
         <div className="register__box">

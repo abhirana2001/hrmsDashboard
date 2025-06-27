@@ -1,0 +1,39 @@
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal__confirm {
+ 
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+}
+
+.confirm-header {
+  background-color: #4a007b; 
+  color: white;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.confirm-body {
+  padding: 1.3rem;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}

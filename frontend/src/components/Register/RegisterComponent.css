@@ -72,4 +72,16 @@ flex:1;
 
 }
 
+
+}
+
+
+.message__container{
+    margin: 0.5rem 0;
+ 
+    & p{
+text-align: center;
+color: red;
+font-weight: 700;
+    }
 }

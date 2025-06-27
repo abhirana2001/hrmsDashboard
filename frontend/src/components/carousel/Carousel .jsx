@@ -65,6 +65,7 @@ function Carousel() {
           {carouselData.map((item, index) => {
             return (
               <span
+                key={index}
                 className={
                   index === carouselIndex
                     ? "carousel__button__currently carousel__button"

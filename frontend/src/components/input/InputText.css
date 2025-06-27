@@ -20,5 +20,37 @@
   font-size:1rem;
   color:  rgba(164, 164, 164, 1);
   font-weight: 400
-;
+}
+
+
+
+.input__container>p{
+color: red;
+font-size: 0.8rem;
+}
+
+.input__password{
+      border: 2px solid  rgba(229, 229, 229, 1) ;
+  padding: 0.6rem  2.6rem 0.6rem 0.6rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size:1rem;
+  color:  rgba(164, 164, 164, 1);
+  font-weight: 400;
+
+}
+
+.input__Box{
+    display: flex;
+    position: relative;
+    & .password__eye{
+        position: absolute;
+        cursor: pointer;
+        height: 1.25rem;
+        width: 1.25rem;
+        top:50%;
+        right:0.8rem;
+ transform: translateY(-50%);
+       
+    }
 }

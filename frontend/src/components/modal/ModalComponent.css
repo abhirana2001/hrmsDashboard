@@ -1,0 +1,95 @@
+.modal__container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  border-radius: 1rem;
+  width: 70vmax;
+ 
+
+}
+
+.btn_wrapper{
+    display: flex;
+    margin: 2rem 0 0.5rem 0;
+    justify-content: center;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #4d007d;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.close__btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.modal__body {
+  padding: 1rem;
+}
+
+.modal__group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+.checkbox-group {
+  display: flex;
+  align-items: start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.save__btn {
+  background: #ccc;
+  color: white;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+
+@media only screen and (max-width:756px) {
+    .modal__group {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width:576px) {
+   .modal {
+    max-height: 90vmin;
+  overflow-y: scroll;
+}
+
+}
+
+
+    
