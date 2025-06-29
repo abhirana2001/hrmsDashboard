@@ -3,10 +3,17 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { axiosInstance } from "../../features/axiosInstance";
+import { data } from "react-router-dom";
 
-function DotDropdown({ fileUrl, _id, confirmModal = () => {} }) {
+function DotDropdown({
+  fileUrl,
+  _id,
+  data,
+  confirmModal = () => {},
+  currentType,
+  onClick,
+}) {
   const [open, setOpen] = useState(false);
-  console.log(fileUrl);
 
   const ref = useRef(null);
   const handleToggle = () => {
@@ -14,7 +21,7 @@ function DotDropdown({ fileUrl, _id, confirmModal = () => {} }) {
   };
 
   function downloadResume(fileUrl) {
-    window.open(`${import.meta.env.VITE_BASE_URL}upload/${fileUrl}`, "_blank");
+    window.open(`${import.meta.env.VITE_BASE_URL}/upload/${fileUrl}`, "_blank");
   }
 
   useEffect(() => {
@@ -25,14 +32,11 @@ function DotDropdown({ fileUrl, _id, confirmModal = () => {} }) {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("mouseout", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.addEventListener("mouseout", handleClickOutside);
     };
   }, [ref]);
-  console.log(ref);
 
   return (
     <div className="dot__dropdown__container" ref={ref}>
@@ -44,18 +48,27 @@ function DotDropdown({ fileUrl, _id, confirmModal = () => {} }) {
       </div>
       {open && (
         <div className={`dot__dropdown__content  `}>
-          <div
-            className="dot__dropdow__items"
-            onClick={() => downloadResume(fileUrl)}
-          >
-            Download Resume
-          </div>
-          <div
-            className="dot__dropdow__items"
-            onClick={() => confirmModal(_id)}
-          >
-            Delete Candidate
-          </div>
+          {currentType == "Candidate" && (
+            <div
+              className="dot__dropdow__items"
+              onClick={() => downloadResume(fileUrl)}
+            >
+              Download Resume
+            </div>
+          )}
+          {(currentType == "Employee" || currentType == "Attendance") && (
+            <div className="dot__dropdow__items" onClick={() => onClick(data)}>
+              Edit
+            </div>
+          )}
+          {currentType !== "Attendance" && (
+            <div
+              className="dot__dropdow__items"
+              onClick={() => confirmModal(_id)}
+            >
+              Delete Candidate
+            </div>
+          )}
         </div>
       )}
     </div>

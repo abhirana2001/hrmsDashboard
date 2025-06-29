@@ -1,0 +1,128 @@
+.fc .fc-day-today {
+  background-color: #f5f5f5 !important; 
+ 
+  border-radius: 8px;
+}
+
+.leave-dot .fc-event {
+  background: none !important;
+  border: none !important;
+  color: transparent;
+  font-size: 0;
+}
+
+.fc-daygrid-day-frame {
+  position: relative;
+}
+.fc .fc-cell-shaded, .fc .fc-day-disabled {
+    background: transparent;
+}
+
+.fc .fc-toolbar {
+    align-items: center;
+    display: flex;
+    gap: 0.4rem;
+    justify-content:left;
+}
+.dot-wrapper {
+  position: absolute;
+  bottom: 0.1rem;
+  right: 0.2rem;
+  z-index: 10;
+}
+fc-daygrid-day {
+  border: 1px solid #ccc !important; }
+
+
+.fc-daygrid-day.fc-daygrid-day-frame:first-child {
+  border-left: 1px solid #b53232 !important;
+}
+.fc .fc-bg-event {
+    background:none ;
+    opacity: 1  ;
+}
+.dot-with-count {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #4a007b !important;
+  border-radius: 50%;
+  color: white;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
+.fc .fc-button-primary:disabled {
+    background-color: transparent;
+    border-color:transparent ;
+    color: #4a007b;
+   
+}
+
+
+.fc .fc-toolbar-title {
+    font-size: 1rem;
+    margin: 0px;
+    font-weight: 500;
+}
+
+.fc .fc-button .fc-icon {
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+.fc .fc-button-primary {
+    background-color:transparent;
+    border-color: transparent;
+    color: #4a007b;
+}
+
+.active__border{
+ 
+
+}
+.fc .fc-button-primary:hover {
+    background-color:transparent;
+    border-color: transparent;
+    color:#4a007b;
+}
+.fc .fc-button-primary:focus {
+    box-shadow: none;
+}
+
+
+.fc-daygrid-day.custom-selected {
+  border: 2px solid #4a007b;
+  border-radius: 6px;
+  background-color: #f0f8ff; 
+  transition: border 0.2s ease;
+}
+
+
+.fc .fc-daygrid-day-top {
+    display: flex
+;
+    flex-direction:unset ;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom:0rem;
+}
+
+.fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 1px 2px;
+}
+
+.fc-daygrid-day {
+    height: 36px !important;
+    padding: 0px !important;
+    font-size: 10px;
+}
+
+.fc .fc-scroller-liquid-absolute {
+    inset: 0px;
+    position: absolute;
+    overflow: scroll;
+}

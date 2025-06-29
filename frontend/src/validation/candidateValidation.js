@@ -1,23 +1,26 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-export const candidateSchema = Yup.object().shape({
-  fullName: Yup.string()
+export const candidateSchema = yup.object().shape({
+  fullName: yup
+    .string()
     .required("Name is required")
     .min(3, "Minimum 3 characters"),
 
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  email: yup.string().email("Invalid email").required("Email is required"),
 
-  phoneNo: Yup.string()
+  phoneNo: yup
+    .string()
     .required("Phone is required")
     .matches(/^[0-9]{10}$/, "Phone must be 10 digits"),
 
-  position: Yup.string().required("Please select a position"),
-  experience: Yup.number()
+  position: yup.string().required("Please select a position"),
+  experience: yup
+    .number()
     .typeError("Experience must be a number")
     .required("Experience is required")
     .min(0, "Cannot be negative")
     .max(50, "Too much experience 🤔"),
-  resume: Yup.mixed().required("Resume is required"),
+  resume: yup.mixed().required("Resume is required"),
 
-  agree: Yup.bool().oneOf([true], "You must accept the terms"),
+  agree: yup.bool().oneOf([true], "You must accept the terms"),
 });

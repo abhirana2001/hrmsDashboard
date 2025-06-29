@@ -11,7 +11,7 @@ function DashboardPage() {
       case "/candidate":
         return "Candidate";
       case "/attendance":
-        return "/Attendance";
+        return "Attendance";
       case "/employee":
         return "Employee";
       case "/leaves":

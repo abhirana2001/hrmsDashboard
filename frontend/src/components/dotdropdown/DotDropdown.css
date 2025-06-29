@@ -12,6 +12,10 @@
     justify-content: center;
 }
 
+.dot__dropdown__button{
+    font-size: 1rem;
+}
+
 .dot__dropdown__content{
     position: absolute;
     min-height: 100%;

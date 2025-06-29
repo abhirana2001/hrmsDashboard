@@ -15,6 +15,7 @@ function InputText({ name, label, type = "text", formik }) {
       </div>
       <div className="input__Box">
         <input
+          autoComplete="off"
           id={name}
           name={name}
           type={inputType}

@@ -1,7 +1,7 @@
 
 
 .dashboard__container{
-    padding: 2rem 1rem;
+    padding: 0.5rem 1rem;
     min-height: 100vh;
    
 }
@@ -15,4 +15,20 @@
 .main,.dashboard__topbar__container{
     margin-left: 17vmax;
     
+}
+
+/* Optional: Responsive */
+@media (max-width: 768px) {
+  
+
+ .dashboard__navbar__container {
+    transform: translateX(-100%);
+  }
+.main,.dashboard__topbar__container{
+    margin-left: 0;
+    
+}
+  .sidebar_open {
+    transform: translateX(0);
+  }
 }

@@ -9,7 +9,7 @@ function FloatingDropdown({
 }) {
   const [focused, setFocused] = useState(false);
 
-  const value = formik?.values[name] || "";
+  const value = formik?.values?.[name] || "";
 
   const handleChange = (e) => {
     formik?.setFieldValue(name, e.target.value);
@@ -39,8 +39,8 @@ function FloatingDropdown({
         required
       >
         <option value="" disabled hidden></option>
-        {options.map((opt, i) => (
-          <option key={i} value={opt}>
+        {options?.map((opt, i) => (
+          <option className="floating__dropdown__option" key={i} value={opt}>
             {opt}
           </option>
         ))}

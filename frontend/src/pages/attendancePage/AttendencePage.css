@@ -1,7 +1,7 @@
 
 
-.box {
-  min-height:73vh;
+.attendance__box {
+  min-height:80vh;
   
   background: #fff;
   border: 1px solid rgba(0,0,0,0.1);
@@ -10,20 +10,20 @@
   overflow-x: auto;
 }
 
-.box__table {
+.attendance__box__table {
   width: 100%;
   border-collapse: collapse;
   
 }
 
-.box__table thead {
+.attendance__box__table thead {
   background-color: #4d007d;
   color: #fff;
    
 
 }
 
-.box__table th{
+.attendance__box__table th{
      padding: 0.8rem 0.8rem;
   text-align: left;
   font-size: 0.9rem;
@@ -32,7 +32,7 @@
 }
 
 
-.box__table td {
+.attendance__box__table td {
   padding: 0.8rem 0.8rem;
   text-align: left;
   font-size: 0.9rem;
@@ -40,21 +40,21 @@
   
 }
 
-.filter__container{
+.attendance__filter__container{
     margin: 1rem 0rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.filter__Search{
+.attendance__filter__Search{
     display: flex;
      gap:1.5rem;
     align-items: center;
 
 }
 
-.filter_options{
+.attendance__filter_options{
      display: flex;
     align-items: center;
 
@@ -63,7 +63,7 @@
 
 
 
-.menu__btn {
+.attendance__menu__btn {
   background: transparent;
   border: none;
   font-size: 0.9rem;
@@ -72,11 +72,11 @@
 
 
 @media (max-width: 768px) {
-  .responsive-table {
+  .attendance__responsive-table {
     font-size: 0.85rem;
   }
 
-  .card {
+  .attendance__card {
     padding: 0.5rem;
   }
 }

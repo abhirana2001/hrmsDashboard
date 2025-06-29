@@ -5,7 +5,9 @@ import { dbConfig } from "./config/dbConfig.js";
 import authRouter from "./routes/authRoute.js";
 import candidateRoute from "./routes/candidateRoute.js";
 import employeeRoute from "./routes/employeeRoute.js";
-
+import attendanceRouter from "./routes/attendanceRoute.js";
+import filterRouter from "./routes/filterRoute.js";
+import leaveRouter from "./routes/leaveRoute.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -21,6 +23,9 @@ app.use("/upload", express.static("uploads"));
 app.use("/auth", authRouter);
 app.use("/employee", employeeRoute);
 app.use("/candidate", candidateRoute);
+app.use("/attendance", attendanceRouter);
+app.use("/filter", filterRouter);
+app.use("/leave", leaveRouter);
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });

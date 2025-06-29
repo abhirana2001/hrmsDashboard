@@ -25,6 +25,8 @@ function LoginComponent() {
         const res = await axiosInstance.post(`/auth/login`, values);
         console.log(res);
         localStorage.setItem("token", JSON.stringify(res.data.jwtToken));
+        localStorage.setItem("logintime", Date.now());
+
         setMessage({ message: res?.data?.message, color: "green" });
 
         navigate("/candidate");

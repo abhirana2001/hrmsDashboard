@@ -1,6 +1,6 @@
 
 
-.box {
+.employee__box {
   min-height:73vh;
   
   background: #fff;
@@ -10,20 +10,20 @@
   overflow-x: auto;
 }
 
-.box__table {
+.employee__box__table {
   width: 100%;
   border-collapse: collapse;
   
 }
 
-.box__table thead {
+.employee__box__table thead {
   background-color: #4d007d;
   color: #fff;
    
 
 }
 
-.box__table th{
+.employee__box__table th{
      padding: 0.8rem 0.8rem;
   text-align: left;
   font-size: 0.9rem;
@@ -32,7 +32,7 @@
 }
 
 
-.box__table td {
+.employee__box__table td {
   padding: 0.8rem 0.8rem;
   text-align: left;
   font-size: 0.9rem;
@@ -40,21 +40,21 @@
   
 }
 
-.filter__container{
+.employee__filter__container{
     margin: 1rem 0rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.filter__Search{
+.employee__filter__Search{
     display: flex;
      gap:1.5rem;
     align-items: center;
 
 }
 
-.filter_options{
+.employee__filter_options{
      display: flex;
     align-items: center;
 
@@ -63,7 +63,7 @@
 
 
 
-.menu__btn {
+.employee__menu__btn {
   background: transparent;
   border: none;
   font-size: 0.9rem;
@@ -72,11 +72,11 @@
 
 
 @media (max-width: 768px) {
-  .responsive-table {
+  .employee__responsive-table {
     font-size: 0.85rem;
   }
 
-  .card {
+  .employee__card {
     padding: 0.5rem;
   }
 }

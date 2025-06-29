@@ -1,6 +1,6 @@
 import "./App.css";
 import RegisterPage from "./pages/register/RegisterPage";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import LoginPage from "./pages/login/LoginPage";
 import CandidatePage from "./pages/candidatePage/CandidatePage";
 import { loginSchema } from "./validation/registration";
@@ -15,22 +15,32 @@ import EmployeePage from "./pages/employee/EmployeePage";
 import AuthGuard from "./auth/authGuard";
 import AttendancePage from "./pages/attendancePage/AttendancePage";
 import LeavePage from "./pages/leavepage/LeavePage";
-import LogOutPage from "./pages/logoutpage/LogOutPage";
 
 function App() {
+  const navigate = useNavigate();
   useEffect(() => {
-    const interval = setInterval(async () => {
-      try {
-        axiosInstance.get("/auth/check", {
-          withCredentials: true,
-        });
-      } catch (err) {
-        navigate("/login");
-      }
-    }, 5 * 60 * 1000);
+    const loginTime = localStorage.getItem("loginTime");
+    const twoHours = 5 * 1000;
 
-    return () => clearInterval(interval);
-  }, [location.pathname]);
+    if (loginTime) {
+      const timePassed = Date.now() - parseInt(loginTime, 10);
+
+      if (timePassed >= twoHours) {
+        handleLogout();
+      } else {
+        const remainingTime = twoHours - timePassed;
+        const timer = setTimeout(handleLogout, remainingTime);
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("loginTime");
+    navigate("/login");
+  };
 
   return (
     <>
@@ -70,14 +80,7 @@ function App() {
               </AuthGuard>
             }
           />
-          <Route
-            path="/logout"
-            element={
-              <AuthGuard>
-                <LogOutPage />
-              </AuthGuard>
-            }
-          />
+
           <Route
             path="/leaves"
             element={

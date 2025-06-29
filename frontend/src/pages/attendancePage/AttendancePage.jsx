@@ -1,112 +1,150 @@
 import React, { useEffect } from "react";
 import "./AttendencePage.css";
 import DropdownComponent from "../../components/dropdown/DropdownComponent";
-import { position } from "../../features/dropDownValues";
+import { attendanceStatus, position } from "../../features/dropDownValues";
 import SearchInput from "../../components/searchinput/SearchInput";
-import Button from "../../components/button/Button";
+
 import { useState } from "react";
 import ModalComponent from "../../components/modal/ModalComponent";
 import { axiosInstance } from "../../features/axiosInstance";
 import DotDropdown from "../../components/dotdropdown/DotDropdown";
-import ConfirmationModal from "../../components/modal/ConfirmationModal";
+
+import { pageHeadings } from "../../features/pageHeading";
+import { attendanceOnSubmitFunction } from "../../features/modalOnSubmitFunction";
+import { attendanceSchema } from "../../validation/attendanceValidation";
 function AttendancePage() {
-  const [open, setOpen] = useState(false);
-  const [employee, setEmployee] = useState([]);
-  const [openConfirm, setOpenConfirm] = useState({
+  const [open, setOpen] = useState({
     isOpen: false,
     payload: "",
   });
 
-  async function updateEmployee(val, payload) {
+  const [attendance, setAttendance] = useState([]);
+
+  const [filter, setFilter] = useState({
+    fullName: "",
+    status: "",
+  });
+
+  const handleFilter = async (newfilter) => {
     try {
-      const res = await axiosInstance.patch(`/employee/${payload._id}`, {
+      const queryParams = new URLSearchParams();
+
+      if (newfilter.fullName)
+        queryParams.append("fullName", newfilter.fullName);
+      if (newfilter.status) queryParams.append("status", newfilter.status);
+
+      const res = await axiosInstance.get(
+        `/filter/attendance?${queryParams.toString()}`
+      );
+
+      setAttendance(res.data.data);
+    } catch (err) {}
+  };
+
+  const handleFilterChange = (value, payload, field) => {
+    const newFilter = { ...filter, [field]: value };
+
+    setFilter(newFilter);
+    handleFilter(newFilter);
+  };
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      handleFilter(filter);
+    }, 200);
+
+    return () => clearTimeout(delay);
+  }, [filter.fullName]);
+
+  const pageHeading = pageHeadings();
+  async function updateAttendance(val, payload) {
+    try {
+      const res = await axiosInstance.patch(`/attendance/${payload._id}`, {
         status: val,
       });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
-
-  async function deleteEmployee(id) {
-    const res = await axiosInstance.delete(`/employee/${id}`);
-    setOpenConfirm((pre) => ({
-      isOpen: !pre.isOpen,
-      payload: pre.payload,
-    }));
-  }
-
-  function handelConfirmModel(data) {
-    setOpenConfirm((pre) => ({
+  const attendanceInitialValue = {
+    task: open?.payload?.task,
+    status: open?.payload?.status,
+  };
+  function handleModel(data) {
+    setOpen((pre) => ({
       isOpen: !pre.isOpen,
       payload: data,
     }));
   }
-
-  function handleModel() {
-    setOpen((pre) => !pre);
-  }
   useEffect(() => {
-    async function getEmployee() {
-      const res = await axiosInstance.get("/employee");
-      console.log(res.data);
+    async function getAttendance() {
+      const res = await axiosInstance.get("/attendance");
 
-      setEmployee(res.data);
+      setAttendance(res.data);
     }
-    getEmployee();
-  }, [open, openConfirm.isOpen]);
+    getAttendance();
+  }, [open]);
 
   return (
-    <div className="employee__container">
-      <ModalComponent isOpen={open} onClose={handleModel} />
-      <ConfirmationModal
-        title="Are you sure you want to delete employee"
-        data={openConfirm.payload}
-        onConfirm={deleteEmployee}
-        no={"No"}
-        yes={"Yes"}
-        onCancel={handelConfirmModel}
-        isOpen={openConfirm.isOpen}
+    <div className="attendance__container">
+      <ModalComponent
+        currentType={pageHeading}
+        isOpen={open.isOpen}
+        id={open?.payload?._id}
+        initialValues={attendanceInitialValue}
+        submitFunc={attendanceOnSubmitFunction}
+        onClose={handleModel}
+        validationSchema={attendanceSchema}
       />
-      <div className="filter__container">
-        <div className="filter_options">
-          <DropdownComponent dropTitle={"position"} content={position} />
+
+      <div className="attendance__filter__container">
+        <div className="attendance__filter_options">
+          <DropdownComponent
+            name={"status"}
+            onSelect={handleFilterChange}
+            dropTitle={"Status"}
+            content={attendanceStatus}
+          />
         </div>
-        <div className="filter__Search">
-          <SearchInput />
+        <div className="attendance__filter__Search">
+          <SearchInput setFunc={setFilter} />
         </div>
       </div>
-      <div className="box">
-        <table className="box__table">
+      <div className="attendance__box">
+        <table className="attendance__box__table">
           <thead>
             <tr>
-              <th>Sr no.</th>
-              <th>Employees Name</th>
-              <th>Email Address</th>
-              <th>Phone Number</th>
+              <th>Profile</th>
+              <th>Employee Name</th>
               <th>Position</th>
               <th>Department</th>
-              <th>Date of joining</th>
+              <th>Task</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {employee?.map((item, index) => {
+            {attendance?.map((item, index) => {
               const sNo = index + 1 >= 10 ? index + 1 : `0${index + 1}`;
 
               return (
-                <tr>
+                <tr key={item._id}>
                   <td>{sNo}</td>
-                  <td>{item.fullName}</td>
-                  <td>{item.email}</td>
-                  <td>{item.phoneNo}</td>
-                  <td>{item.position}</td>
-                  <td>{item.department}</td>
-                  <td>{item.dateOfJoining}</td>
+                  <td>{item?.fullName}</td>
+                  <td>{item?.position}</td>
+                  <td>{item?.department}</td>
+                  <td>{item?.task}</td>
+                  <td>
+                    <DropdownComponent
+                      payload={item}
+                      onSelect={updateAttendance}
+                      select={item.status}
+                      content={attendanceStatus}
+                    />
+                  </td>
                   <td>
                     <DotDropdown
+                      onClick={handleModel}
+                      currentType={pageHeading}
                       _id={item._id}
-                      fileUrl={item?.resumeUrl}
-                      confirmModal={handelConfirmModel}
+                      data={item}
                     />
                   </td>
                 </tr>

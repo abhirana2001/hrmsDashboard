@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 
 function DropdownComponent({
+  name,
   onSelect,
   select = "",
   content,
@@ -23,7 +24,7 @@ function DropdownComponent({
 
   const handleSelect = (value) => {
     setSelected(value);
-    onSelect?.(value, payload);
+    onSelect?.(value, payload, name);
     setOpen(false);
   };
   useEffect(() => {
@@ -42,13 +43,35 @@ function DropdownComponent({
     };
   }, [ref]);
 
+  function handleColor(item) {
+    switch (item) {
+      case "Scheduled":
+        return "rgba(232, 176, 0, 1)";
+      case "Ongoing":
+        return "green";
+      case "Rejected":
+        return "red";
+      case "Present":
+        return "green";
+      case "Approved":
+        return "green";
+      case "Absent":
+        return "red";
+      default:
+        return "#4d007d";
+    }
+  }
+
   return (
     <div className="dropdown__container" ref={ref}>
       <div
         onClick={handleToggle}
         className={`dropdown__button ${open ? "button__up" : null}`}
       >
-        {selected ? selected : dropTitle}
+        <p style={{ color: handleColor(selected) }}>
+          {" "}
+          {selected ? selected : dropTitle}
+        </p>
         <span className="toggle__icon">
           <FontAwesomeIcon icon={open ? faAngleUp : faAngleDown} />
         </span>

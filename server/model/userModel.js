@@ -11,7 +11,6 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    experience: Number,
     role: {
       type: String,
     },

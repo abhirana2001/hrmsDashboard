@@ -4,7 +4,7 @@ import "./Button.css";
 function Button({ func, btnName, btnType = "button", outline = false, data }) {
   return (
     <button
-      onClick={() => func(data)}
+      onClick={() => func && func(data)}
       type={btnType}
       className={`  ${outline ? "outline__btn" : "primary__btn"}`}
     >

@@ -5,7 +5,7 @@ import { useRef } from "react";
 function FloatingUploadInput({ name, label, type = "text", formik }) {
   const [isFocused, setIsFocused] = useState(false);
 
-  const file = formik?.values[name];
+  const file = formik?.values?.[name];
   const fileName = file?.name || "";
 
   const handleChange = (e) => {

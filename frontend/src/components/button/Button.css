@@ -4,11 +4,11 @@
 }
 .primary__btn{
     color: rgba(255, 255, 255, 1);
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
     background-color: var(--btn__color);
     border: none;
-    padding: 0.5rem 2.5rem;
+    padding: 0.5rem 2rem;
     border-radius: 50px;
     cursor: pointer;
 }

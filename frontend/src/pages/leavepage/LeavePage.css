@@ -1,0 +1,127 @@
+
+
+.leave__box {
+  width: 50vmax;
+  min-height:80vh;
+  
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+.leave__calander__wrapper{
+  display: flex;
+      gap: 1.5rem;
+}
+
+.leave__box__table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.leave__box__table thead {
+  background-color: #4d007d;
+  color: #fff;
+   
+
+}
+
+.leave__box__table th{
+     padding: 0.8rem 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  
+}
+
+
+.leave__box__table td {
+  padding: 0.8rem 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 400;
+  
+}
+
+.leave__filter__container{
+    margin: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leave__filter__Search{
+    display: flex;
+     gap:1.5rem;
+    align-items: center;
+
+}
+
+.leave__filter_options{
+     display: flex;
+    align-items: center;
+
+     gap:1.5rem
+}
+
+
+
+.leave__menu__btn {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .leave__responsive-table {
+    font-size: 0.85rem;
+  }
+
+  .leave__card {
+    padding: 0.5rem;
+  }
+}
+
+
+.calender__employee__box{
+      width: 27vmax;
+       border-radius: 20px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+       border: 1px solid rgba(0, 0, 0, 0.1);
+       overflow: hidden;
+}
+
+.calender__box{
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.calender__employee__calender{
+       padding: 0rem 1rem
+
+}
+
+.clender__box__title{
+  background-color: #4d007d;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.calender__box{
+    margin-top: 0.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.doc__icon__leave{
+  height: 1.5rem;
+  width: 1.5rem;
+ 
+}

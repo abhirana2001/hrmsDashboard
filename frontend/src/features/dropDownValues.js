@@ -1,4 +1,4 @@
-export const leaveStatus = ["Pending", "Approved", "Rejected"];
+export const leaveStatus = ["Approved", "Rejected"];
 
 export const candidateStatus = [
   "New",
@@ -9,3 +9,18 @@ export const candidateStatus = [
 ];
 
 export const position = ["Designer", "Devloper", "Human Resource"];
+
+export const employeePositions = [
+  "Intern",
+  "Full Time",
+  "Junior",
+  "Senior",
+  "Team Lead",
+];
+
+export const attendanceStatus = [
+  "Present",
+  "Absent",
+  "Medical Leave",
+  "Work from Home",
+];

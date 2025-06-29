@@ -1,15 +1,17 @@
 import React from "react";
 import "./FloatingLabelInput.css";
-function FloatingLabelInput({ name, label, type = "text", formik }) {
+function FloatingLabelInput({ name, label, type = "text", formik, disable }) {
   return (
     <div className="floating__input">
       <input
+        style={disable ? { border: "1px solid rgba(229, 229, 229, 1)" } : null}
+        autoComplete="off"
         id={name}
         name={name}
         type={type}
         onChange={formik?.handleChange}
         onBlur={formik?.handleBlur}
-        value={formik?.values[name]}
+        value={formik?.values?.[name]}
         required
       />
       <label htmlFor={name}>{label}</label>

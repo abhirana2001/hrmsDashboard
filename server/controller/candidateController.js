@@ -1,3 +1,4 @@
+import attendance from "../model/attendanceModel.js";
 import candidate from "../model/candidateModel.js";
 import employee from "../model/employeeModel.js";
 
@@ -17,6 +18,8 @@ export const createCandidate = async (req, res) => {
     if (!resume) {
       return res.status(400).json({ message: "Resume file is required" });
     }
+
+    console.log(req.body);
 
     const newCandidate = await candidate.create({
       fullName,
@@ -74,9 +77,32 @@ export const updateCandidate = async (req, res) => {
           experience: updateInfo.experience,
           resumeUrl: updateInfo.resumeUrl,
         });
+        console.log("employee created");
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        console.log("today");
+
+        const exists = await attendance.findOne({
+          employee: newEmployee._id,
+          date: today,
+        });
+
+        console.log(exists, "exsist");
+
+        if (!exists) {
+          await attendance.create({
+            employee: newEmployee._id,
+            fullName: newEmployee.fullName,
+            position: newEmployee.position,
+            department: newEmployee.department,
+            date: today,
+          });
+        }
+        console.log("attendanve");
 
         if (newEmployee) {
-          await candidate.findByIdAndDelete({ _id: id });
+          await candidate.findByIdAndDelete(id);
           return res.status(201).json({ message: "employee is created" });
         }
       }
@@ -98,7 +124,7 @@ export const deleteCandidate = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const deletedCandidate = await candidate.findByIdAndDelete({ _id: id });
+    const deletedCandidate = await candidate.findByIdAndDelete(id);
 
     if (!deletedCandidate) {
       return res.status(404).json({ message: "Candidate not found" });
@@ -107,5 +133,40 @@ export const deleteCandidate = async (req, res) => {
     res.json({ message: "Candidate deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: "Error deleting candidate" });
+  }
+};
+
+export const filterCandidate = async (req, res) => {
+  try {
+    const { fullName, position, status } = req.query;
+
+    const query = {};
+
+    if (fullName) {
+      query.fullName = { $regex: fullName, $options: "i" };
+    }
+
+    if (position) {
+      query.position = position;
+    }
+
+    if (status) {
+      query.status = status;
+    }
+
+    const results = await candidate.find(query);
+    console.log(results);
+
+    res.status(200).json({
+      success: true,
+      count: results.length,
+      data: results,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Error filtering attendance",
+      error: err.message,
+    });
   }
 };
