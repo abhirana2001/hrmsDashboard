@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: "https://hrmsdashboard-2ga6.onrender.com",
   withCredentials: true,
 });
