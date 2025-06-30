@@ -71,7 +71,7 @@ function RegisterComponent() {
           </div>
         </div>
         <div className="register__btn__container">
-          <Button btnType="submit" btnName={"Register"} />
+          <Button formik={formik} btnType="submit" btnName={"Register"} />
         </div>
         {message.message && (
           <div className="message__container">

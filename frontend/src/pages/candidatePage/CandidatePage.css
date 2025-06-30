@@ -2,7 +2,7 @@
 
 .box {
   max-width: 100%; 
-  min-height:73vh;
+  min-height:80vh;
   background: #fff;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 20px;
@@ -75,7 +75,20 @@
   .responsive-table {
     font-size: 0.85rem;
   }
+.filter_options{
+      display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+}
 
+.filter__Search{
+      display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+
+}
   .card {
     padding: 0.5rem;
   }

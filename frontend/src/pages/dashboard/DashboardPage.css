@@ -1,8 +1,10 @@
 
 
 .dashboard__container{
-    padding: 0.5rem 1rem;
+   padding: 1rem;
     min-height: 100vh;
+    width: 98vw;
+    overflow-x: hidden;
    
 }
 
@@ -10,6 +12,7 @@
     position: fixed;
     left: 0;
     top: 0;
+    background-color: #fff;
     
 }
 .main,.dashboard__topbar__container{
@@ -20,15 +23,22 @@
 /* Optional: Responsive */
 @media (max-width: 768px) {
   
-
+.dashboard__container{
+   
+}
  .dashboard__navbar__container {
-    transform: translateX(-100%);
+    transition: all 0.5s ;
+    transform: translateX(-140%);
+    z-index: 1111;
   }
 .main,.dashboard__topbar__container{
     margin-left: 0;
     
 }
-  .sidebar_open {
-    transform: translateX(0);
-  }
+.open__dashboard__navbar__container{
+    transform: translateX(0%);
+    z-index: 1111;
+
+}
+
 }

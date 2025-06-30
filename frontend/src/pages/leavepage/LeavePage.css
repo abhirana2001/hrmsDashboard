@@ -1,8 +1,8 @@
 
 
 .leave__box {
-  width: 50vmax;
-  min-height:80vh;
+  width:50vw;
+  min-height:73vh;
   
   background: #fff;
   border: 1px solid rgba(0,0,0,0.1);
@@ -12,8 +12,10 @@
 }
 
 .leave__calander__wrapper{
+    
   display: flex;
       gap: 1.5rem;
+      justify-content: center;
 }
 
 .leave__box__table {
@@ -68,28 +70,8 @@
 }
 
 
-
-.leave__menu__btn {
-  background: transparent;
-  border: none;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-
-@media (max-width: 768px) {
-  .leave__responsive-table {
-    font-size: 0.85rem;
-  }
-
-  .leave__card {
-    padding: 0.5rem;
-  }
-}
-
-
 .calender__employee__box{
-      width: 27vmax;
+      width: 27vw;
        border-radius: 20px;
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
        border: 1px solid rgba(0, 0, 0, 0.1);
@@ -125,3 +107,55 @@
   width: 1.5rem;
  
 }
+
+.leave__menu__btn {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+.leave__box{
+ width: 96vw;
+  min-height:80vh;
+}
+  .calender__employee__box{
+  width: 96vw;
+    min-height: 50vh;
+  }
+  .leave__responsive-table {
+    font-size: 0.85rem;
+  }
+.leave__calander__wrapper{
+  flex-direction: column;
+ align-items: center;
+}
+.leave__filter__Search{
+  flex-direction: column;
+  gap:0.5rem;
+  align-items:center;
+  justify-content: center;
+}
+.calender__employee__calender{
+  display: flex;
+  width: 96vw;
+          gap: 3rem;
+}
+.empoyee__leave_box{
+  width: 45vw;
+}
+.calender__box{
+      width: 45vw;
+}
+
+  .leave__card {
+    padding: 0.5rem;
+  }
+
+ 
+}
+
+
+

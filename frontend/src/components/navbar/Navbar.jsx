@@ -1,11 +1,21 @@
 import React from "react";
 import "./NavBar.css";
 import Logo from "../logo/Logo";
-import SearchInput from "../searchinput/SearchInput";
+import SearchInput, { StaticSearchInput } from "../searchinput/SearchInput";
 import { NavLink } from "react-router-dom";
 import LogOutPage from "../../pages/logoutpage/LogOutPage";
 import { useState } from "react";
-function Navbar() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartSimple,
+  faRightFromBracket,
+  faSliders,
+  faStar,
+  faUsers,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+function Navbar({ handleSlideBar }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -14,12 +24,21 @@ function Navbar() {
       <div className="sidebar__container">
         <div className="frame__container">
           <div className="frame__box">
-            <div className="frame__logo">
-              <img src="/icons/Property 1=Checkbox inactive.png" alt="" />{" "}
-              <h1>LOGO</h1>
+            <div className="slider__wrapper">
+              <div className="frame__logo">
+                <img src="/icons/Property 1=Checkbox inactive.png" alt="" />{" "}
+                <h1>LOGO</h1>
+              </div>
+
+              <FontAwesomeIcon
+                onClick={handleSlideBar}
+                className="slider__close"
+                icon={faXmark}
+                style={{ color: "#4d007d" }}
+              />
             </div>
             <div className="frame__searchbar">
-              <SearchInput />
+              <StaticSearchInput />
             </div>
           </div>
         </div>
@@ -29,7 +48,6 @@ function Navbar() {
 
             <ul>
               <li>
-                {" "}
                 <NavLink
                   to={"/candidate"}
                   className={({ isActive }) =>
@@ -37,7 +55,11 @@ function Navbar() {
                   }
                 >
                   {" "}
-                  <img src="/icons/Property 1=user-add.png" alt="" />
+                  <FontAwesomeIcon
+                    className="faws"
+                    icon={faUserPlus}
+                    style={{ color: "#000000" }}
+                  />
                   Candidate
                 </NavLink>
               </li>
@@ -54,7 +76,12 @@ function Navbar() {
                   }
                 >
                   {" "}
-                  <img src="/icons/Property 1=users.png" alt="" /> Employees
+                  <FontAwesomeIcon
+                    className="faws"
+                    icon={faUsers}
+                    style={{ color: "#000000" }}
+                  />{" "}
+                  Employees
                 </NavLink>
               </li>
               <li>
@@ -65,7 +92,11 @@ function Navbar() {
                   }
                 >
                   {" "}
-                  <img src="/icons/Property 1=attandance.png" alt="" />
+                  <FontAwesomeIcon
+                    className="faws"
+                    icon={faChartSimple}
+                    style={{ color: "#000000" }}
+                  />
                   Attendance
                 </NavLink>
               </li>
@@ -77,7 +108,11 @@ function Navbar() {
                   }
                 >
                   {" "}
-                  <img src="/icons/Icon-leave.png" alt="" />
+                  <FontAwesomeIcon
+                    className="faws"
+                    icon={faStar}
+                    style={{ color: "#000000" }}
+                  />
                   Leaves
                 </NavLink>
               </li>
@@ -92,7 +127,11 @@ function Navbar() {
                   className="link__name"
                   onClick={() => setOpen((pre) => !pre)}
                 >
-                  <img src="/icons/Property 1=log-out@2x.png" alt="" />
+                  <FontAwesomeIcon
+                    className="faws"
+                    icon={faRightFromBracket}
+                    style={{ color: "#000000" }}
+                  />
                   Logout
                 </span>
               </li>

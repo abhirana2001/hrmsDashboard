@@ -185,7 +185,7 @@ function ModalComponent({
           )}
 
           <div className="btn_wrapper">
-            <Button btnType="submit" btnName={"Save"} />
+            <Button formik={formik} btnType="submit" btnName={"Save"} />
           </div>
           {message.message && (
             <div className="message__container">

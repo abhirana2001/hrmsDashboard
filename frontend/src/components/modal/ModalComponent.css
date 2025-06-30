@@ -11,7 +11,7 @@
 .modal {
   background: white;
   border-radius: 1rem;
-  width: 70vmax;
+  width: 70vw;
  
 
 }
@@ -30,6 +30,10 @@
   color: white;
   padding: 1rem;
   border-radius: 1rem 1rem 0 0;
+  & h2{
+        flex: 1;
+        text-align: center;
+  }
 }
 
 .close__btn {
@@ -85,7 +89,7 @@
 
 @media only screen and (max-width:576px) {
    .modal {
-    max-height: 90vmin;
+    max-height: 90vh;
   overflow-y: scroll;
 }
 

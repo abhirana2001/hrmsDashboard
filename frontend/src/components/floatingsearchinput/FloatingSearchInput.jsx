@@ -55,6 +55,7 @@ function FloatingSearchInput({ label, name, formik }) {
   return (
     <div className="floating__search__container">
       <input
+        autoComplete="off"
         type="text"
         className="floating__search__input"
         placeholder=" "

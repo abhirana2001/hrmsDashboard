@@ -27,3 +27,21 @@
     gap: 0.5rem;
 }
 
+.slider__open{
+    display: none;
+}
+
+@media only screen and (max-width:756px) {
+
+.slider__open{
+    display:block;
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+}
+.page__title__container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+}

@@ -1,19 +1,25 @@
 import React from "react";
 import "./TopBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faSliders } from "@fortawesome/free-solid-svg-icons";
 import {
   faBell,
   faEnvelope,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
-function TopBar({ pageTitle }) {
+function TopBar({ pageTitle, handleSlideBar }) {
   return (
     <div className="topbar__container">
       <div className="page__title__container">
+        <FontAwesomeIcon
+          onClick={handleSlideBar}
+          className={`slider__open`}
+          icon={faSliders}
+          style={{ color: "#4d007d" }}
+        />
         <h2 className="page__title">{pageTitle}</h2>
       </div>
-      <div className="page__profile__icons">
+      <div className={`page__profile__icons`}>
         <FontAwesomeIcon
           className="page__prodile__icon"
           icon={faEnvelope}

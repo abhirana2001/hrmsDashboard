@@ -58,7 +58,7 @@ function LoginComponent() {
         </div>
 
         <div className="login__btn__container">
-          <Button btnType="submit" btnName={"Login"} />
+          <Button formik={formik} btnType="submit" btnName={"Login"} />
         </div>
         {message.message && (
           <div className="message__container">
